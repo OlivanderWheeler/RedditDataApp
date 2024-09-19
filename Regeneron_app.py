@@ -27,8 +27,8 @@ from sklearn.metrics import silhouette_score
 from sklearn.metrics import silhouette_samples
 
 #Import the sentence transformers
-#from transformers import pipeline
-#from sentence_transformers import SentenceTransformer
+from transformers import pipeline
+from sentence_transformers import SentenceTransformer
 
 
 
@@ -57,7 +57,7 @@ All_comments = [i.replace('\n','') for i in All_comments]
 
 #Add the sentiments
 #Add the model
-#sentiment_analysis = pipeline("sentiment-analysis",model="siebert/sentiment-roberta-large-english")
+sentiment_analysis = pipeline("sentiment-analysis",model="siebert/sentiment-roberta-large-english")
 
 #Create the sentiments
 if os.path.isfile('Processed_Data/Sentiments.pkl'):
@@ -108,7 +108,7 @@ if os.path.isfile('Processed_Data/All_Semantic_embeddings.pkl'):
     with open('Processed_Data/Neg_Semantic_embeddings.pkl', 'rb') as f:
         Neg_embeddings = pickle.load(f)
 else:
-    #embedder = SentenceTransformer("all-MiniLM-L6-v2")
+    embedder = SentenceTransformer("all-MiniLM-L6-v2")
 
     st.write('Creating embeddings')
     All_embeddings = embedder.encode(All_comments)
