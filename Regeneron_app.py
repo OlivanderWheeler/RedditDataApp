@@ -27,8 +27,8 @@ from sklearn.metrics import silhouette_score
 from sklearn.metrics import silhouette_samples
 
 #Import the sentence transformers
-from transformers import pipeline
-from sentence_transformers import SentenceTransformer
+#from transformers import pipeline
+#from sentence_transformers import SentenceTransformer
 
 
 
