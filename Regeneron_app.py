@@ -42,16 +42,17 @@ with st.sidebar:
 
 #Load the data
 #if scrapped_website == 'Reddit':
-df = pd.read_csv('Regeneron_scraped_data.csv')
-df_clean = df[df['path'] != '/r/PharmaEire/search/']
-All_comments = []
-for i in range(len(df_clean)):
-    test_string = df_clean['html_content'].to_list()[i]
-    All_comments += [sub_string.split('</p>')[0] for sub_string in test_string.split('<p>')[1:]][4:]
+#df = pd.read_csv('Regeneron_scraped_data.csv')
+#df_clean = df[df['path'] != '/r/PharmaEire/search/']
+#All_comments = []
+#for i in range(len(df_clean)):
+#    test_string = df_clean['html_content'].to_list()[i]
+#    All_comments += [sub_string.split('</p>')[0] for sub_string in test_string.split('<p>')[1:]][4:]
+#All_comments = [i.replace('\n','') for i in All_comments]
+    
+with open('Processed_Data/All_comments.pkl', 'rb') as f:
+    All_comments = pickle.load(f)
 All_comments = [i.replace('\n','') for i in All_comments]
-    
-    
-    
 
 
 #Add the sentiments
